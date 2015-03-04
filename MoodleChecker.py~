@@ -22,5 +22,5 @@ def run(moodleLogin, moodlePassword):
 	grades = driver.find_element_by_xpath('//*[@id="inst39"]/div[2]').text
 
 	print("Grades successfully checked at " + str(datetime.now()))
-	driver.quit()
+        driver.quit()
 	return grades

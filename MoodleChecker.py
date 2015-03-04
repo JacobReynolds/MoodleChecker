@@ -2,10 +2,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from datetime import datetime
+from pyvirtualdisplay import Display
 
 #Main program function
 def run(moodleLogin, moodlePassword):
 	#Creates browser and logins to personal website
+	display = Display(visible=0, size=(800, 600))
+	display.start()
 	driver = webdriver.Firefox()
 	driver.get("http://moodle.umn.edu")
 	username = driver.find_element_by_name("j_username")
@@ -23,4 +26,5 @@ def run(moodleLogin, moodlePassword):
 
 	print("Grades successfully checked at " + str(datetime.now()))
 	driver.quit()
+	display.stop()
 	return grades

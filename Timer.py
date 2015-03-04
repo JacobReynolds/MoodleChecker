@@ -21,7 +21,7 @@ while(True):
 		server.sendmail(gmailUsername,gmailUsername,msg)
 		server.quit()
 		print("Message sent")
-		lastIteration = msg
-		#Wait 60 seconds then restart loop
-		time.sleep(60)
+		lastIteration = msg	
+	#Wait 60 seconds then restart loop
+	time.sleep(60)
 

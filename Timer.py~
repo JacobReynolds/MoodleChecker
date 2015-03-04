@@ -3,9 +3,9 @@ from MoodleChecker import run
 import smtplib
 import getpass
 import time
-moodleLogin = input("Please input your x500: ")
+moodleLogin = raw_input("Please input your x500: ")
 moodlePassword = getpass.getpass("Please enter your password: ")
-gmailUsername = input("Please input Non-UMN Gmail: ")
+gmailUsername = raw_input("Please input Non-UMN Gmail: ")
 gmailPassword = getpass.getpass("Please enter Gmail password: ")
 
 lastIteration = ''

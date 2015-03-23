@@ -3,6 +3,7 @@ from MoodleChecker import run
 import smtplib
 import getpass
 import time
+from datetime import datetime
 moodleLogin = input("Please input your x500: ")
 moodlePassword = getpass.getpass("Please enter your password: ")
 gmailUsername = input("Please input Non-UMN Gmail: ")
@@ -12,7 +13,12 @@ lastIteration = ''
 while(True):
 	#If the grades have changed since the program started running
 	#Send email to user and update to new grades
-	msg = run(moodleLogin, moodlePassword)
+	#If an error occurs, send email to user and restart
+	try: msg = run(moodleLogin, moodlePassword)
+	except: 
+		print("Error connecting " + str(datetime.now()))
+		msg = "Error connecting " + str(datetime.now())
+		time.sleep(60)
 	if (msg != lastIteration):
 		#Sends message using Gmail servers
 		server = smtplib.SMTP('smtp.gmail.com:587')

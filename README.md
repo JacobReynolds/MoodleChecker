@@ -2,7 +2,7 @@
 
 #Use
 Download the zip file, unpack and cd into the directory.<br>
-Enter the command     python Timer.py     and follow the instructions.<br><br>
+Enter the command     python3 Timer.py     and follow the instructions.<br><br>
 The checker will email you whenever grades are changed while it is running, at the email provided.<br><br>
 #Dependencies
 -Python3 installation instructions can be found at https://www.python.org/downloads/<br>

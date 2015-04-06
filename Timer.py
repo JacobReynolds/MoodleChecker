@@ -18,7 +18,7 @@ while(True):
 	except: 
 		print("Error connecting " + str(datetime.now()))
 		msg = "Error connecting " + str(datetime.now())
-		time.sleep(60)
+		time.sleep(10)
 	if (msg != lastIteration):
 		#Sends message using Gmail servers
 		server = smtplib.SMTP('smtp.gmail.com:587')

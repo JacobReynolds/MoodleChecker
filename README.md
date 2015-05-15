@@ -12,6 +12,6 @@ The checker will email you whenever grades are changed while it is running, at t
 -For headless browsing download Xvfb in the command line<br>
 -Also download pyvirtualdisplay from pip
 <br><br>
-This program has only been tested on Windows and Linux<br>
+This program has only been tested on Linux<br>
 If there are errors thrown, restart and make sure input is correct and there is an internet connection<br>
 Any questions or concerns can be sent to reyno511@umn.edu

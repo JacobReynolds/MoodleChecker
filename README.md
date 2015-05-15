@@ -3,7 +3,8 @@
 #Use
 Download the zip file, unpack and cd into the directory.<br>
 Enter the command     python3 Timer.py     and follow the instructions.<br><br>
-The checker will email you whenever grades are changed while it is running, at the email provided.<br><br>
+The checker will email you whenever grades are changed while it is running, at the email provided.<br>
+Note: Your gmail must allow access from 3rd party applications<br>
 #Dependencies
 -Make sure you have [this](http://imgur.com/GA0Ux0R) on your Moodle homepage.<br>
 -Python3 installation instructions can be found at https://www.python.org/downloads/<br>

@@ -6,6 +6,7 @@ from pyvirtualdisplay import Display
 
 #Main program function
 def run(moodleLogin, moodlePassword):
+	print("start moodle")
 	#Creates browser and logins to personal website
 	display = Display(visible=0, size=(800, 600))
 	display.start()
@@ -27,4 +28,5 @@ def run(moodleLogin, moodlePassword):
 	print("Grades successfully checked at " + str(datetime.now()))
 	driver.quit()
 	display.stop()
+	print("finish moodle")
 	return grades

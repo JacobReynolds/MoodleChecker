@@ -1,5 +1,6 @@
 #MoodleCheckerTimer
 from MoodleChecker import run
+from AstronomyChecker import runAst
 import smtplib
 import getpass
 import time
@@ -10,6 +11,7 @@ gmailUsername = input("Please input Non-UMN Gmail: ")
 gmailPassword = getpass.getpass("Please enter Gmail password: ")
 
 lastIteration = ''
+lastIterationAst = ''
 
 #Sends message using Gmail servers
 def sendEmail(msg):
@@ -23,7 +25,9 @@ while(True):
 	#If the grades have changed since the program started running
 	#Send email to user and update to new grades
 	#If an error occurs, send email to user and restart
-	try: msg = run(moodleLogin, moodlePassword)
+	try: 
+		msg = run(moodleLogin, moodlePassword)
+		msgAst = runAst()
 	except Exception as e: 
 		print("Error connecting " + str(datetime.now()))
 		msg = "Error connecting " + str(datetime.now())
@@ -38,5 +42,9 @@ while(True):
 		sendEmail(msg)
 		print("Message sent")
 		lastIteration = msg	
+	if (msgAst != lastIterationAst):
+		sendEmail("Astronomy updated")
+		print("Ast sent")
+		lastIterationAst = msgAst
 	#Wait 60 seconds then restart loop
 	time.sleep(60)

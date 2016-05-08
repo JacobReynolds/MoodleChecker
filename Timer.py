@@ -16,7 +16,7 @@ def sendEmail(msg):
 	server = smtplib.SMTP('smtp.gmail.com:587')
 	server.starttls()
 	server.login(gmailUsername,gmailPassword)
-	server.sendmail(gmailUsername,gmailUsername,"Server healthy")
+	server.sendmail(gmailUsername,gmailUsername,msg)
 	server.quit()
 	
 while(True):

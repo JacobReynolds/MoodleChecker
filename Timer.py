@@ -53,4 +53,4 @@ while(True):
 		print("Final grade update message sent")
 		lastIterationFinal = msgFinal	
 	#Wait 60 seconds then restart loop
-	#time.sleep(60)
+	time.sleep(60)

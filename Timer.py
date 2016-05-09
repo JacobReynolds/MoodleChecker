@@ -1,5 +1,5 @@
 #MoodleCheckerTimer
-from MoodleChecker import run
+from MoodleChecker import *
 from AstronomyChecker import runAst
 import smtplib
 import getpass
@@ -12,7 +12,7 @@ gmailPassword = getpass.getpass("Please enter Gmail password: ")
 
 lastIteration = ''
 lastIterationAst = ''
-
+lastIterationFinal = ''
 #Sends message using Gmail servers
 def sendEmail(msg):
 	server = smtplib.SMTP('smtp.gmail.com:587')
@@ -28,9 +28,11 @@ while(True):
 	try: 
 		msg = run(moodleLogin, moodlePassword)
 		msgAst = runAst()
+		msgFinal = runFinal(moodleLogin, moodlePassword)
 	except Exception as e: 
 		print("Error connecting " + str(datetime.now()))
 		msg = "Error connecting " + str(datetime.now())
+		print(e)
 		time.sleep(10)
 	finally:
 		date = datetime.now()
@@ -41,10 +43,13 @@ while(True):
 	if (msg != lastIteration):
 		sendEmail(msg)
 		print("Message sent")
-		lastIteration = msg	
 	if (msgAst != lastIterationAst):
 		sendEmail("Astronomy updated")
 		print("Ast sent")
 		lastIterationAst = msgAst
+	if (msgFinal != lastIterationFinal):
+		sendEmail("Final grade updated")
+		print("Final grades message sent")
+		lastIterationFinal = msgFinal	
 	#Wait 60 seconds then restart loop
 	time.sleep(60)

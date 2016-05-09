@@ -41,15 +41,15 @@ while(True):
 			sendEmail("Server healthy")
 			print("health check sent")
 	if (msg != lastIteration):
-		#sendEmail(msg)
+		sendEmail(msg)
 		print("Grade update message sent")
 		lastIteration = msg
 	if (msgAst != lastIterationAst):
-		#sendEmail("Astronomy updated")
+		sendEmail("Astronomy updated")
 		print("Astronomy grade update message sent")
 		lastIterationAst = msgAst
 	if (msgFinal != lastIterationFinal):
-		#sendEmail("Final grade updated")
+		sendEmail("Final grade updated")
 		print("Final grade update message sent")
 		lastIterationFinal = msgFinal	
 	#Wait 60 seconds then restart loop

@@ -39,8 +39,8 @@ def runFinal(moodleLogin, moodlePassword):
 	#Wait for webpage to load
 	driver.implicitly_wait(10)
 	#Get grade info
-	grades = driver.find_element_by_xpath('//*[@id="grades_Undergraduate"]/div[1]/div[3]/div/table').get_attribute('innerHTML')
+	finalGrades = driver.find_element_by_xpath('//*[@id="grades_Undergraduate"]/div[1]/div[3]/div/table').get_attribute('innerHTML')
 	print("Final grades successfully checked at " + str(datetime.now()))
 	driver.quit()
 	display.stop()
-	return grades
+	return finalGrades

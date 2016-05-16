@@ -45,6 +45,7 @@ while(True):
 			print("health check sent")
 		if (errorCount > errorMax):
 			sendEmail("Too many errors, please check server")
+			errorCount = 0
 	if (msg != lastIteration):
 		sendEmail(msg)
 		print("Grade update message sent")

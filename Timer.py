@@ -9,7 +9,9 @@ moodleLogin = input("Please input your x500: ")
 moodlePassword = getpass.getpass("Please enter your password: ")
 gmailUsername = input("Please input Non-UMN Gmail: ")
 gmailPassword = getpass.getpass("Please enter Gmail password: ")
-
+#Got tired of error emails, if more than 10 happen in 12 hours, send an email
+errorCount = 0
+errorMax = 10
 lastIteration = ''
 lastIterationAst = ''
 lastIterationFinal = ''
@@ -31,15 +33,18 @@ while(True):
 		msgFinal = runFinal(moodleLogin, moodlePassword)
 	except Exception as e: 
 		print("Error connecting " + str(datetime.now()))
-		msg = "Error connecting " + str(datetime.now())
 		print(e)
+		errorCount+=1
 		time.sleep(10)
 	finally:
 		date = datetime.now()
-		#Send a health check at 8 am every morning
-		if (date.hour == 8 and date.minute <= 1):
+		#Send a health check at 8 am every morning and 8 pm every night
+		if ((date.hour == 8 or date.hour == 20) and date.minute <= 1):
+			errorCount = 0
 			sendEmail("Server healthy")
 			print("health check sent")
+		if (errorCount > errorMax):
+			sendEmail("Too many errors, please check server")
 	if (msg != lastIteration):
 		sendEmail(msg)
 		print("Grade update message sent")
